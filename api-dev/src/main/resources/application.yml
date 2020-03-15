@@ -1,0 +1,70 @@
+# GLOBAL CONFIGURATION
+
+spring:
+  application.name: api-dev
+  velocity.enabled: false
+  datasource:
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jackson.serializationindent_output: true
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+  main:
+      allow-bean-definition-overriding: true
+
+info.component: api-dev
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+#    show-details: "ALWAYS"
+
+security:
+  ignored:
+  - "*.bundle.*"
+  oauth2:
+    resource:
+      filter-order: 3
+
+management:
+  contextPath: /actuator
+  security.enabled: false
+  health.consul.enabled: false
+
+server:
+  contextPath: /
+  port: 8086
+---
+# DOCKER CONFIGURATION
+spring:
+  profiles: default
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostName: localhost
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://35.189.173.198:3306/hiep
+    username: root
+    password: 2wsxCDE!
+#  jpa: 
+#    hibernate:
+#      ddl-auto: update

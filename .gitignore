@@ -1,0 +1,15 @@
+/web-app/node_modules
+/web-app/package-lock.json
+/web-app/src/bower_components
+/web-app/.tmp
+/.idea/
+.settings
+target
+.classpath
+.project
+/.jazz5/
+/.metadata/
+/.recommenders/
+/.idea/
+clientdb.xml
+/*.tgitconfig

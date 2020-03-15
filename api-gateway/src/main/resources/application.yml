@@ -1,0 +1,77 @@
+# GLOBAL CONFIGURATION
+
+spring:
+  application.name: api-gateway
+  velocity.enabled: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+  main:
+    allow-bean-definition-overriding: true
+
+info.component: API-Gateway
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+
+management:
+  contextPath: /actuator
+  health.consul.enabled: false
+
+server:
+  contextPath: /
+  port: 8880
+  max-http-header-size: 10000000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 36000000
+        timeout:
+          enabled: false
+ribbon:
+  ConnectTimeout:  60000
+  ReadTimeout:  60000
+zuul:
+  ignoredServices: '*'
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  routes:
+#    oauthService:
+#      sensitiveHeaders:
+#      path: /api-oauth/**
+#      serviceId: api-oauth
+    reportService:
+      sensitiveHeaders:
+      path: /api-dev/**
+      serviceId: api-dev
+---
+# DOCKER CONFIGURATION
+spring:
+  profiles: default
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostName: localhost
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://35.189.173.198:3306/hiep
+    username: root
+    password: 2wsxCDE!
+#  jpa: 
+#    hibernate:
+#      ddl-auto: update

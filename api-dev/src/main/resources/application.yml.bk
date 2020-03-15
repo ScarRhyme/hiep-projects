@@ -1,0 +1,94 @@
+# GLOBAL CONFIGURATION
+
+spring:
+  application.name: report-system
+  velocity.enabled: false
+  datasource:
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jackson.serializationindent_output: true
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+info.component: Report-System
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+#    show-details: "ALWAYS"
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+
+management:
+  contextPath: /actuator
+  security.enabled: false
+  health.consul.enabled: false
+
+server:
+  contextPath: /
+  port: 8086
+---
+# DOCKER CONFIGURATION
+spring:
+  profiles: default
+  cloud:
+    stream:
+      instanceIndex: 3
+      kafka:
+        consumer:
+            client-id: report-service
+        client-id: report-service
+        binder:
+          brokers: 150.95.109.148:9092
+          zkNodes: 150.95.109.148:2181
+      default:
+        contentType: application/json
+      bindings:
+        sysCatChannel:
+          destination: sys-cat
+          group: report-service
+          contentType: application/json
+        languageChannelIn:
+          destination: language
+          group: report-service
+          contentType: application/json
+        organizationChannelIn:
+          destination: organization
+          group: report-service
+          contentType: application/json
+        positionChannelIn:
+          destination: position
+          group: report-service
+          contentType: application/json
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostName: localhost
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://125.212.225.85:3366/vhcm_report
+    username: root
+    password: hoalaca@A123
+  jpa: 
+    hibernate:
+      ddl-auto: update
