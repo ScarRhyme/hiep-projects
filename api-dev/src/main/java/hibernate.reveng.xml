@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="hiep" match-name="About"/>
+  <table-filter match-catalog="hiep" match-name="ActionActive"/>
+  <table-filter match-catalog="hiep" match-name="Bill"/>
+  <table-filter match-catalog="hiep" match-name="BillDetail"/>
+  <table-filter match-catalog="hiep" match-name="CommandUser"/>
+  <table-filter match-catalog="hiep" match-name="Customer"/>
+  <table-filter match-catalog="hiep" match-name="Location"/>
+  <table-filter match-catalog="hiep" match-name="Menu"/>
+  <table-filter match-catalog="hiep" match-name="MenuType"/>
+  <table-filter match-catalog="hiep" match-name="NewCategory"/>
+  <table-filter match-catalog="hiep" match-name="NewTag"/>
+  <table-filter match-catalog="hiep" match-name="News"/>
+  <table-filter match-catalog="hiep" match-name="Product"/>
+  <table-filter match-catalog="hiep" match-name="ProductCategory"/>
+  <table-filter match-catalog="hiep" match-name="ProductImage"/>
+  <table-filter match-catalog="hiep" match-name="ProductLocation"/>
+  <table-filter match-catalog="hiep" match-name="RolePermission"/>
+  <table-filter match-catalog="hiep" match-name="Tags"/>
+  <table-filter match-catalog="hiep" match-name="Users"/>
+  <table-filter match-catalog="hiep" match-name="actions"/>
+  <table-filter match-catalog="hiep" match-name="permission"/>
+  <table-filter match-catalog="hiep" match-name="roles"/>
+</hibernate-reverse-engineering>

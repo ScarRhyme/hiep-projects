@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">2wsxCDE!</property>
+        <property name="hibernate.connection.url">jdbc:mysql://35.189.173.198:3306/hiep</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="Entities/Tags.hbm.xml"/>
+        <mapping resource="Entities/CommandUser.hbm.xml"/>
+        <mapping resource="Entities/News.hbm.xml"/>
+        <mapping resource="Entities/Roles.hbm.xml"/>
+        <mapping resource="Entities/Users.hbm.xml"/>
+        <mapping resource="Entities/Location.hbm.xml"/>
+        <mapping resource="Entities/Permission.hbm.xml"/>
+        <mapping resource="Entities/ActionActive.hbm.xml"/>
+        <mapping resource="Entities/Bill.hbm.xml"/>
+        <mapping resource="Entities/ProductLocation.hbm.xml"/>
+        <mapping resource="Entities/Menu.hbm.xml"/>
+        <mapping resource="Entities/ProductCategory.hbm.xml"/>
+        <mapping resource="Entities/MenuType.hbm.xml"/>
+        <mapping resource="Entities/NewTag.hbm.xml"/>
+        <mapping resource="Entities/BillDetail.hbm.xml"/>
+        <mapping resource="Entities/Product.hbm.xml"/>
+        <mapping resource="Entities/RolePermission.hbm.xml"/>
+        <mapping resource="Entities/Actions.hbm.xml"/>
+        <mapping resource="Entities/ProductImage.hbm.xml"/>
+        <mapping resource="Entities/About.hbm.xml"/>
+        <mapping resource="Entities/Customer.hbm.xml"/>
+        <mapping resource="Entities/NewCategory.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
