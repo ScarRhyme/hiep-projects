@@ -1,5 +1,9 @@
 package com.hiep.DAO.Respon;
 
-public class LocationRes {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.hiep.Entities.Location;
+
+public abstract class LocationRes implements JpaRepository<Location, Integer> {
 
 }
