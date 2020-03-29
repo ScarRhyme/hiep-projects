@@ -1,9 +1,14 @@
 package com.hiep.DAO.Respon;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.hiep.Entities.MenuType;
+public interface MenuTypeRes extends JpaRepository<MenuType, Integer> {
 
-public abstract class MenuTypeRes implements JpaRepository<MenuType, Integer> {
 
 }

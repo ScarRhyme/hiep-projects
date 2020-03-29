@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hiep.Entities.About;
 
-public abstract class AboutRes implements JpaRepository<About, Integer> {
+public interface AboutRes extends JpaRepository<About, Integer> {
 
 }

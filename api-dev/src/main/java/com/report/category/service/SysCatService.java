@@ -84,7 +84,6 @@ public class SysCatService {
      * @param nationId id cua thi truong
      * @return danh sach {@link SysCatBO}
      */
-    public List<SysCatBO> findSysCat(String sysCatTypeCode, HttpServletRequest req) {
-        return scDAO.findBySysCatTypeCode(uttData, sysCatTypeCode, req);
-    }
+    public List<A> findSysCat(String typecode) ;
+    
 }

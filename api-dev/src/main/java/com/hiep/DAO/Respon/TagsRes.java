@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hiep.Entities.Tags;
 
-public abstract class TagsRes implements JpaRepository<Tags , Integer> {
-
+public interface TagsRes extends JpaRepository<Tags , Integer> {
+	
 }
+	
