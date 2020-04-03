@@ -16,59 +16,32 @@ import lombok.Data;
  */
 
 @Data
-@Entity
-@Table(name = "NewCategory", schema = "dbo", catalog = "hiep")
 public class NewCategoryReq implements java.io.Serializable {
-	@Id
-	@Column(name = "MenuTypeId")
+	
 	private int newCategoryId;
 	
-	@Basic
-	@Column(name = "name")
 	private String name;
 	
-	@Basic
-	@Column(name = "meataTittle")
 	private String meataTittle;
-	
-	@Basic
-	@Column(name = "parrentId")
+
 	private Integer parrentId;
 	
-	@Basic
-	@Column(name = "displayOrder")
 	private Integer displayOrder;
 	
-	@Basic
-	@Column(name = "seoTittle")
 	private String seoTittle;
-	
-	@Basic
-	@Column(name = "createdDate")
+
 	private Date createdDate;
-	
-	@Basic
-	@Column(name = "createBy")
+
 	private String createBy;
 	
-	@Basic
-	@Column(name = "modifiedDate")
 	private Date modifiedDate;
 	
-	@Basic
-	@Column(name = "metaKeywords")
 	private String metaKeywords;
-	
-	@Basic
-	@Column(name = "metaDescription")
+
 	private String metaDescription;
 	
-	@Basic
-	@Column(name = "statuss")
 	private Boolean statuss;
 	
-	@Basic
-	@Column(name = "showOnHome")
 	private Boolean showOnHome;
 
 	public NewCategoryReq() {
@@ -78,7 +51,7 @@ public class NewCategoryReq implements java.io.Serializable {
 		this.newCategoryId = newCategoryId;
 	}
 
-	public NewCategory(int newCategoryId, String name, String meataTittle, Integer parrentId, Integer displayOrder,
+	public NewCategoryReq(int newCategoryId, String name, String meataTittle, Integer parrentId, Integer displayOrder,
 			String seoTittle, Date createdDate, String createBy, Date modifiedDate, String metaKeywords,
 			String metaDescription, Boolean statuss, Boolean showOnHome) {
 		this.newCategoryId = newCategoryId;

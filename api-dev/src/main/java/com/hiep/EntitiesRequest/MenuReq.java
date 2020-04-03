@@ -14,39 +14,22 @@ import lombok.Data;
  */
 
 @Data
-@Entity
-@Table(name = "Menu", schema = "dbo", catalog = "hiep")
 public class MenuReq implements java.io.Serializable {
-	@Id
-	@Column(name = "MenuId")
+
 	private int menuId;
-	
-	@Basic
-	@Column(name = "Texts")
+
 	private String texts;
-	
-	@Basic
-	@Column(name = "Link")
+
 	private String link;
-	
-	@Basic
-	@Column(name = "DisplayOrder")
+
 	private Integer displayOrder;
-	
-	@Basic
-	@Column(name = "Target")
+
 	private String target;
-	
-	@Basic
-	@Column(name = "Statuss")
+
 	private Boolean statuss;
-	
-	@Basic
-	@Column(name = "MenuTypeId")
+
 	private Integer menuTypeId;
-	
-	@Basic
-	@Column(name = "MenuParrenId")
+
 	private Integer menuParrenId;
 
 	public MenuReq() {
@@ -67,6 +50,5 @@ public class MenuReq implements java.io.Serializable {
 		this.menuTypeId = menuTypeId;
 		this.menuParrenId = menuParrenId;
 	}
-
 
 }

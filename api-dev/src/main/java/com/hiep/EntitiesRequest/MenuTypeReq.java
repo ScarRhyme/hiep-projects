@@ -14,15 +14,10 @@ import lombok.Data;
  */
 
 @Data
-@Entity
-@Table(name = "MenuType", schema = "dbo", catalog = "hiep")
 public class MenuTypeReq implements java.io.Serializable {
-	@Id
-	@Column(name = "MenuTypeId")
+
 	private Integer menuTypeId;
-	
-	@Basic
-	@Column(name = "MenuName")
+
 	private String menuName;
 
 	public MenuTypeReq() {

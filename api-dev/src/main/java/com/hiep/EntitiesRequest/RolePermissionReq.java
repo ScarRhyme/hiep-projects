@@ -14,21 +14,15 @@ import lombok.Data;
  */
 
 @Data
-@Entity
-@Table(name = "RolePermission", schema = "dbo", catalog = "hiep")
 public class RolePermissionReq implements java.io.Serializable {
 
-	@Id
-	@Column(name = "RolePermissionId")
+	
 	private int rolePermissionId;
-	@Basic
-	@Column(name = "RoleId")
+	
 	private int roleId;
-	@Basic
-	@Column(name = "PermissionId")
+
 	private int permissionId;
-	@Basic
-	@Column(name = "ActionActive")
+	
 	private int actionActive;
 
 	public RolePermissionReq() {
