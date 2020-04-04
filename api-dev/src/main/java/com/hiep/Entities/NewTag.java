@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "NewTag", schema = "dbo", catalog = "hiep")
-public class NewTag implements java.io.Serializable {
+public class NewTag implements java.io.Serializable  {
 	@Id
 	@Column(name = "NewId")
 	private int newId;

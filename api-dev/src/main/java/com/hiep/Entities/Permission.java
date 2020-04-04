@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "Permission", schema = "dbo", catalog = "hiep")
-public class Permission implements java.io.Serializable {
+public class Permission implements java.io.Serializable  {
 	@Id
 	@Column(name = "PermissionId")
 	private int permissionId;

@@ -14,7 +14,7 @@ import lombok.Data;
  */
 
 @Data
-public class MenuTypeReq implements java.io.Serializable {
+public class MenuTypeReq  {
 
 	private Integer menuTypeId;
 

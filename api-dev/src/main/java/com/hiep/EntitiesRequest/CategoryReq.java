@@ -16,7 +16,7 @@ import lombok.Data;
  */
 
 @Data
-public class NewCategoryReq implements java.io.Serializable {
+public class CategoryReq  {
 	
 	private int newCategoryId;
 	
@@ -44,14 +44,14 @@ public class NewCategoryReq implements java.io.Serializable {
 	
 	private Boolean showOnHome;
 
-	public NewCategoryReq() {
+	public CategoryReq() {
 	}
 
-	public NewCategoryReq(int newCategoryId) {
+	public CategoryReq(int newCategoryId) {
 		this.newCategoryId = newCategoryId;
 	}
 
-	public NewCategoryReq(int newCategoryId, String name, String meataTittle, Integer parrentId, Integer displayOrder,
+	public CategoryReq(int newCategoryId, String name, String meataTittle, Integer parrentId, Integer displayOrder,
 			String seoTittle, Date createdDate, String createBy, Date modifiedDate, String metaKeywords,
 			String metaDescription, Boolean statuss, Boolean showOnHome) {
 		this.newCategoryId = newCategoryId;

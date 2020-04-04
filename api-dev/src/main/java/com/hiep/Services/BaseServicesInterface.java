@@ -11,21 +11,13 @@ import com.data.exception.ValidateException;
 import com.report.category.bo.SysCatBO;
 import com.report.category.form.SysCatForm;
 
-public interface BaseServicesInterface<A, B, C> i {
+public interface BaseServicesInterface<A, B, C> {
 	/*
 	 * E là enity B là entity request C là DAO
 	 */
 	public A findById(C id);
 
-	public DataTableResults<A> getDatatables(B Entirequest);
-
-	public List<A> findByTypeId(C id);
-
-	public List<A> findByName(String name);
-
-	public String findByCode(String code);
-
-	public void update(A object);
+	public List<A> getlist(B Entirequest);
 
 	public void saveOrUpdate(A entity);
 
@@ -38,7 +30,7 @@ public interface BaseServicesInterface<A, B, C> i {
 	 * @param entityRequest
 	 * @throws ValidateException
 	 */
-	public void validateBeforeSave(A entity, B Entirequest) throws ValidateException;
+	
 	/**
 	 * Lay danh sach sys cat type theo id cua thi truong va sys cat type code
 	 * 

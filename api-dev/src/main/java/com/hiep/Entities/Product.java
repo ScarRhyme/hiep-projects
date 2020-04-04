@@ -17,7 +17,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "Product", schema = "dbo", catalog = "hiep")
-public class Product implements java.io.Serializable {
+public class Product implements java.io.Serializable  {
 	@Id
 	private Integer productId;
 	@Basic
@@ -92,6 +92,9 @@ public class Product implements java.io.Serializable {
 	@Basic
 	@Column(name = "TopHotDateAccept")
 	private Integer topHotDateAccept;
+	@Basic
+	@Column(name = "LocationBegin")
+	private String locationBegin;
 
 	public Product() {
 	}
@@ -100,7 +103,7 @@ public class Product implements java.io.Serializable {
 			Integer productImageId, Integer price, Integer promotionPrice, Integer quantity, Integer categoryId,
 			String detail, Date createdDate, String createBy, String modifiedBy, Date modifiedDate, String metaKeywords,
 			String metaDescription, Byte status, Boolean topHot, Integer viewCount, Integer combo,
-			Integer productLocationId, Date timeStart, Date timeEnd, Integer topHotDateAccept) {
+			Integer productLocationId, Date timeStart, Date timeEnd, Integer topHotDateAccept , String locationBegin) {
 		this.productCode = productCode;
 		this.productName = productName;
 		this.metaTittle = metaTittle;
@@ -125,6 +128,7 @@ public class Product implements java.io.Serializable {
 		this.timeStart = timeStart;
 		this.timeEnd = timeEnd;
 		this.topHotDateAccept = topHotDateAccept;
+		this.locationBegin = locationBegin;
 	}
 
 	public Integer getProductId() {

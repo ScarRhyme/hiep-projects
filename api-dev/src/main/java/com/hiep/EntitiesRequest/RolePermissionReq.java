@@ -14,7 +14,7 @@ import lombok.Data;
  */
 
 @Data
-public class RolePermissionReq implements java.io.Serializable {
+public class RolePermissionReq  {
 
 	
 	private int rolePermissionId;

@@ -15,7 +15,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "Actions", schema = "dbo", catalog = "hiep")
-public class Actions implements java.io.Serializable {
+public class Actions implements java.io.Serializable  {
 
 	@Id
 	@Column(name = "AboutId")

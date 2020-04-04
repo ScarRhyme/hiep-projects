@@ -17,8 +17,14 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "ProductCategory", schema = "dbo", catalog = "hiep")
-public class ProductCategory implements java.io.Serializable {
+public class ProductCategory implements java.io.Serializable  {
 	@Id
+	@Column(name = "ProductCategoryID")
+	private int productCategoryID;
+	@Basic
+	@Column(name = "ProductId")
+	private int productId;
+	@Basic
 	@Column(name = "CategoryId")
 	private int categoryId;
 	@Basic
@@ -65,9 +71,11 @@ public class ProductCategory implements java.io.Serializable {
 		this.categoryId = categoryId;
 	}
 
-	public ProductCategory(int categoryId, String nameCate, String meataTittle, Integer parrentId, Integer displayOrder,
+	public ProductCategory(int productCategoryID,int productId ,int categoryId, String nameCate, String meataTittle, Integer parrentId, Integer displayOrder,
 			String seoTittle, Date createdDate, String createBy, Date modifiedDate, String metaKeywords,
 			String metaDescription, Boolean statuss, Boolean showOnHome) {
+		this.productCategoryID = productCategoryID;
+		this.productId = productCategoryID;
 		this.categoryId = categoryId;
 		this.nameCate = nameCate;
 		this.meataTittle = meataTittle;

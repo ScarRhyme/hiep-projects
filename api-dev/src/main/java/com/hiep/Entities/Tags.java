@@ -18,7 +18,7 @@ import lombok.Data;
 public class Tags implements java.io.Serializable {
 	@Id
 	@Column(name = "TagId")
-	private String tagId;
+	private int tagId;
 	@Basic
 	@Column(name = "TagName")
 	private String tagName;
@@ -26,20 +26,20 @@ public class Tags implements java.io.Serializable {
 	public Tags() {
 	}
 
-	public Tags(String tagId) {
+	public Tags(int tagId) {
 		this.tagId = tagId;
 	}
 
-	public Tags(String tagId, String tagName) {
+	public Tags(int tagId, String tagName) {
 		this.tagId = tagId;
 		this.tagName = tagName;
 	}
 
-	public String getTagId() {
+	public int getTagId() {
 		return this.tagId;
 	}
 
-	public void setTagId(String tagId) {
+	public void setTagId(int tagId) {
 		this.tagId = tagId;
 	}
 

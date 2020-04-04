@@ -14,7 +14,7 @@ import lombok.Data;
 
 
 @Data
-public class BillDetailReq implements java.io.Serializable {
+public class BillDetailReq  {
 	
 	
 	private int billDetailId;
