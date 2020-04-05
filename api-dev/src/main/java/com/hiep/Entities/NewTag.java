@@ -18,21 +18,25 @@ import lombok.Data;
 public class NewTag implements java.io.Serializable  {
 	@Id
 	@Column(name = "NewId")
+	private int newTagID;
+	@Basic
+	@Column(name = "NewId")
 	private int newId;
 	@Basic
 	@Column(name = "TagId")
-	private String tagId;
+	private int tagId;
 
 	public NewTag() {
 	}
 
-	public NewTag(int newId) {
-		this.newId = newId;
+	public NewTag(int newTagID) {
+		this.newTagID = newTagID;
 	}
 
-	public NewTag(int newId, String tagId) {
+	public NewTag(int newTagID,int newId, int tagId) {
 		this.newId = newId;
 		this.tagId = tagId;
+		this.newTagID= newTagID;
 	}
 
 	public int getNewId() {
@@ -43,11 +47,11 @@ public class NewTag implements java.io.Serializable  {
 		this.newId = newId;
 	}
 
-	public String getTagId() {
+	public int getTagId() {
 		return this.tagId;
 	}
 
-	public void setTagId(String tagId) {
+	public void setTagId(int tagId) {
 		this.tagId = tagId;
 	}
 
