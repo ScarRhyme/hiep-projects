@@ -1,7 +1,3 @@
-/*
- * Copyright (C) 2018 Viettel Telecom. All rights reserved. VIETTEL PROPRIETARY/CONFIDENTIAL. Use is
- * subject to license terms.
- */
 package com.data.common;
 
 import java.io.Serializable;
