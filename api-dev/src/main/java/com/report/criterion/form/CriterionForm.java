@@ -1,15 +1,9 @@
-/*
- * Copyright (C) 2010 Viettel Telecom. All rights reserved.
- * VIETTEL PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package com.report.criterion.form;
 
 import java.util.Date;
 
-import org.springframework.web.multipart.MultipartFile;
-
 /**
- * SalaryTableForm class
+ * CriterionForm class
  *
  * @author
  * @since 1.0

@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.report.criterion.bo.CriterionBO;
-//import com.viettel.bo.income.domain.SalaryTableDomain;
 import com.data.common.CommonUtil;
 import com.data.common.TreeNodeBean;
 import com.data.common.TreeNodeEvaluateBean;
