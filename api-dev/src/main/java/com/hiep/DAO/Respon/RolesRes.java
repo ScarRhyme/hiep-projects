@@ -10,3 +10,5 @@ import org.springframework.stereotype.Repository;
 import com.hiep.Entities.Roles;
 public interface RolesRes extends JpaRepository<Roles, Integer> {
 	
+}
+	

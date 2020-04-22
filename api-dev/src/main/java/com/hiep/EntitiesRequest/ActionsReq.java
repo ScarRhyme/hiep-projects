@@ -33,7 +33,7 @@ public class ActionsReq  {
 		this.actionId = actionId;
 	}
 
-	public Actions(int actionId, String actionCode, String actionName) {
+	public ActionsReq(int actionId, String actionCode, String actionName) {
 		this.actionId = actionId;
 		this.actionCode = actionCode;
 		this.actionName = actionName;

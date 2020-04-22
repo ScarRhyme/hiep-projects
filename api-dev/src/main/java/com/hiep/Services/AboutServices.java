@@ -2,16 +2,21 @@ package com.hiep.Services;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.data.common.CommonUtil;
 import com.data.common.UttData;
 import com.data.domain.DataTableResults;
+import com.data.exception.SysException;
 import com.data.exception.ValidateException;
 import com.hiep.DAO.Respon.AboutRes;
 import com.hiep.Entities.About;
 import com.hiep.EntitiesRequest.AboutReq;
+import com.report.category.bo.SysCatTypeBO;
+import com.report.category.form.SysCatTypeForm;
 
 @Service
 public class AboutServices implements BaseServicesInterface<About, AboutReq, Integer> {
@@ -30,7 +35,7 @@ public class AboutServices implements BaseServicesInterface<About, AboutReq, Int
 	}
 
 	@Override
-	public List<About> getlist(AboutReq Entirequest) {
+	public List<About> getlist() {
 		// TODO Auto-generated method stub
 		return aboutRes.findAll();
 	}
@@ -53,7 +58,7 @@ public class AboutServices implements BaseServicesInterface<About, AboutReq, Int
 	public void delete(About entity) {
 		aboutRes.delete(entity);
 	}
-
+	
 
 
 }

@@ -11,7 +11,6 @@ import javax.ws.rs.Path;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,74 +23,69 @@ import org.springframework.web.bind.annotation.RestController;
 import com.data.common.CommonUtil;
 import com.data.common.Constants;
 import com.data.common.Response;
-import com.data.controller.BaseController;
 import com.data.exception.SysException;
 import com.hiep.Entities.About;
+import com.hiep.Entities.Actions;
 import com.hiep.EntitiesRequest.AboutReq;
-import com.hiep.Services.AboutServices;
+import com.hiep.EntitiesRequest.ActionsReq;
+import com.hiep.Services.ActionsServices;
 import com.report.user.service.JwtService;
 
-@RestController
-@RequestMapping("/dulich/about")
-public class AboutController extends BaseController{
 
+@RestController
+@RequestMapping("/dulich/actions")
+public class ActionController {
 
 	@Autowired
-	private AboutServices aboutServices;
+	private ActionsServices actionsServices;
 	
 	@Autowired
 	private JwtService jwtService;
 	
 	@GetMapping(path = "/{id}")
-    @CrossOrigin(origins = "http://localhost:3000")
     public @ResponseBody Response findById(HttpServletRequest req, @PathVariable int id) {
-		About about = aboutServices.findById(id);
-        if (about == null) {
+		Actions actions = actionsServices.findById(id);
+        if (actions == null) {
             return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
         }
-        return Response.success().withData(about);
+        return Response.success().withData(actions);
     }
 
     @GET
-    @CrossOrigin(origins = "http://localhost:3000")
-    public @ResponseBody List<About> getlist(HttpServletRequest req) {
-    	List<About> abouts = aboutServices.getlist();
-    	if(abouts.isEmpty() || abouts == null)
+    public @ResponseBody List<Actions> getlist(HttpServletRequest req) {
+    	List<Actions> listactions = actionsServices.getlist();
+    	if(listactions.isEmpty() || listactions == null)
     	{
             return null ;
     	}
     	else {
-    		return abouts;
+    		return listactions;
     	}
     }
 
     @POST
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody Response create(HttpServletRequest req, @RequestBody AboutReq form) 
+    public @ResponseBody Response create(HttpServletRequest req, @RequestBody ActionsReq form) 
             throws Exception, SysException {
-        int AboutID = CommonUtil.NVL(form.getAboutId());
-        About about;
-        if(AboutID > 0) {
-        	about = aboutServices.findById(AboutID);
-            if(about == null) {
+        int ActionID = CommonUtil.NVL(form.getActionId());
+        Actions actions;
+        if(ActionID > 0) {
+        	actions = actionsServices.findById(ActionID);
+            if(actions == null) {
                 return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
             }
 //            if (!permissionChecker.hasPermission("action.update", adResouceKey, req)) {
 //                return Response.invalidPermission();
 //            }
         } else {
-        	about = new About();
+        	actions = new Actions();
 //            if (!permissionChecker.hasPermission("action.insert", adResouceKey, req)) {
 //                return Response.invalidPermission();
 //            }
-        	about.setAboutId(form.getAboutId());
-        	about.setCreatedDate(new Date());
-            // lấy token
-        	about.setCreatedBy(jwtService.getUsernameFromToken(req.getAuthType()));
-        	about.setTittle(form.getTittle());
-            about.setDetails(form.getDetails());
-            about.setDescriptions(form.getDescriptions());
-            aboutServices.saveOrUpdate(about);
+        	actions.setActionCode(form.getActionCode());
+        	actions.setActionName(form.getActionName());
+            // lấy token        	
+            actionsServices.saveOrUpdate(actions);
         }
         return Response.success(Constants.RESPONSE_CODE.SUCCESS).withData(form);
     }
@@ -101,10 +95,10 @@ public class AboutController extends BaseController{
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody Response delete(HttpServletRequest req,@PathVariable int id) throws SysException, InstantiationException, IllegalAccessException {
         if(id > 0L) {
-            About about = aboutServices.findById(id);
-            if (about != null) {
+            Actions actions = actionsServices.findById(id);
+            if (actions != null) {
 
-            	aboutServices.delete(about);
+            	actionsServices.delete(actions);
                 return Response.success(Constants.RESPONSE_CODE.DELETE_SUCCESS);
             } else {
                 return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
@@ -120,11 +114,11 @@ public class AboutController extends BaseController{
 public @ResponseBody Response update(HttpServletRequest req,@PathVariable int id) throws SysException, InstantiationException, IllegalAccessException {
     
 	if(id > 0) {
-        About about = aboutServices.findById(id);
+		Actions actions = actionsServices.findById(id);
 
-        if (about != null) {
+        if (actions != null) {
 
-        	aboutServices.saveOrUpdate(about);
+        	actionsServices.saveOrUpdate(actions);
             return Response.success(Constants.RESPONSE_CODE.DELETE_SUCCESS);
         } else {
             return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);

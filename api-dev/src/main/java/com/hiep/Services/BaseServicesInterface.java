@@ -17,7 +17,7 @@ public interface BaseServicesInterface<A, B, C> {
 	 */
 	public A findById(C id);
 
-	public List<A> getlist(B Entirequest);
+	public List<A> getlist();
 
 	public void saveOrUpdate(A entity);
 

@@ -71,14 +71,14 @@ public class Category implements java.io.Serializable  {
 	@Column(name = "showOnHome")
 	private Boolean showOnHome;
 
-	public NewCategory() {
+	public Category() {
 	}
 
-	public NewCategory(int newCategoryId) {
+	public Category(int newCategoryId) {
 		this.newCategoryId = newCategoryId;
 	}
 
-	public NewCategory(int newCategoryId, String name, String meataTittle, Integer parrentId, Integer displayOrder,
+	public Category(int newCategoryId, String name, String meataTittle, Integer parrentId, Integer displayOrder,
 			String seoTittle, Date createdDate, String createBy, Date modifiedDate, String metaKeywords,
 			String metaDescription, Boolean statuss, Boolean showOnHome) {
 		this.newCategoryId = newCategoryId;
