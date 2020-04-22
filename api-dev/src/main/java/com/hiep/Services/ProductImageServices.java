@@ -27,7 +27,7 @@ public class ProductImageServices implements BaseServicesInterface<ProductImage,
 	}
 
 	@Override
-	public List<ProductImage> getlist(ProductImageReq Entirequest) {
+	public List<ProductImage> getlist() {
 		// TODO Auto-generated method stub
 		return ProductImageRes.findAll();
 	}

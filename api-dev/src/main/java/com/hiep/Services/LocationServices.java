@@ -29,7 +29,7 @@ public class LocationServices implements BaseServicesInterface<Location, Locatio
 	}
 
 	@Override
-	public List<Location> getlist(LocationReq Entirequest) {
+	public List<Location> getlist() {
 		// TODO Auto-generated method stub
 		return locationRes.findAll();
 	}

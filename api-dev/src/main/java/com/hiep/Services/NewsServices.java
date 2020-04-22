@@ -30,7 +30,7 @@ public class NewsServices implements BaseServicesInterface<News, NewsReq, Intege
 	}
 
 	@Override
-	public List<News> getlist(NewsReq Entirequest) {
+	public List<News> getlist() {
 		// TODO Auto-generated method stub
 		return NewsRes.findAll();
 	}

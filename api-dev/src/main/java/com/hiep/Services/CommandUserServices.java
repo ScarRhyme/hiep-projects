@@ -27,7 +27,7 @@ public class CommandUserServices implements BaseServicesInterface<CommandUser, C
 	}
 
 	@Override
-	public List<CommandUser> getlist(CommandUserReq Entirequest) {
+	public List<CommandUser> getlist() {
 		// TODO Auto-generated method stub
 		return CommandUserRes.findAll();
 	}

@@ -30,7 +30,7 @@ public class MenuTypeServices implements BaseServicesInterface<MenuType, MenuTyp
 	}
 
 	@Override
-	public List<MenuType> getlist(MenuTypeReq Entirequest) {
+	public List<MenuType> getlist() {
 		// TODO Auto-generated method stub
 		return MenuTypeRes.findAll();
 	}

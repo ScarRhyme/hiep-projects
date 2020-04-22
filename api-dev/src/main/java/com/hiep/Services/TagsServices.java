@@ -30,7 +30,7 @@ public class TagsServices implements BaseServicesInterface<Tags, TagsReq, Intege
 	}
 
 	@Override
-	public List<Tags> getlist(TagsReq Entirequest) {
+	public List<Tags> getlist() {
 		// TODO Auto-generated method stub
 		return TagsRes.findAll();
 	}

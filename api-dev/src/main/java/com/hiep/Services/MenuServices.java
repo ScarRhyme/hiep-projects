@@ -29,7 +29,7 @@ public class MenuServices implements BaseServicesInterface<Menu, MenuReq, Intege
 	}
 
 	@Override
-	public List<Menu> getlist(MenuReq Entirequest) {
+	public List<Menu> getlist() {
 		// TODO Auto-generated method stub
 		return MenuRes.findAll();
 	}

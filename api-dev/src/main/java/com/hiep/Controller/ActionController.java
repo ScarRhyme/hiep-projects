@@ -38,93 +38,92 @@ public class ActionController {
 
 	@Autowired
 	private ActionsServices actionsServices;
-	
+
 	@Autowired
 	private JwtService jwtService;
-	
+
 	@GetMapping(path = "/{id}")
-    public @ResponseBody Response findById(HttpServletRequest req, @PathVariable int id) {
+	public @ResponseBody Response findById(HttpServletRequest req, @PathVariable int id) {
 		Actions actions = actionsServices.findById(id);
-        if (actions == null) {
-            return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
-        }
-        return Response.success().withData(actions);
-    }
+		if (actions == null) {
+			return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
+		}
+		return Response.success().withData(actions);
+	}
 
-    @GET
-    public @ResponseBody List<Actions> getlist(HttpServletRequest req) {
-    	List<Actions> listactions = actionsServices.getlist();
-    	if(listactions.isEmpty() || listactions == null)
-    	{
-            return null ;
-    	}
-    	else {
-    		return listactions;
-    	}
-    }
+	@GET
+	public @ResponseBody List<Actions> getlist(HttpServletRequest req) {
+		List<Actions> listactions = actionsServices.getlist();
+		if (listactions.isEmpty() || listactions == null) {
+			return null;
+		} else {
+			return listactions;
+		}
+	}
 
-    @POST
-    @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody Response create(HttpServletRequest req, @RequestBody ActionsReq form) 
-            throws Exception, SysException {
-        int ActionID = CommonUtil.NVL(form.getActionId());
-        Actions actions;
-        if(ActionID > 0) {
-        	actions = actionsServices.findById(ActionID);
-            if(actions == null) {
-                return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
-            }
+	@POST
+	@ResponseStatus(HttpStatus.CREATED)
+	public @ResponseBody Response create(HttpServletRequest req, @RequestBody ActionsReq form)
+			throws Exception, SysException {
+		int ActionID = CommonUtil.NVL(form.getActionId());
+		Actions actions;
+		if (ActionID > 0) {
+			actions = actionsServices.findById(ActionID);
+			if (actions == null) {
+				return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
+			}
 //            if (!permissionChecker.hasPermission("action.update", adResouceKey, req)) {
 //                return Response.invalidPermission();
 //            }
-        } else {
-        	actions = new Actions();
+		} else {
+			actions = new Actions();
 //            if (!permissionChecker.hasPermission("action.insert", adResouceKey, req)) {
 //                return Response.invalidPermission();
 //            }
-        	actions.setActionCode(form.getActionCode());
-        	actions.setActionName(form.getActionName());
-            // lấy token        	
-            actionsServices.saveOrUpdate(actions);
-        }
-        return Response.success(Constants.RESPONSE_CODE.SUCCESS).withData(form);
-    }
-    
-    @Path("/{id}")
-    @DELETE
-    @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody Response delete(HttpServletRequest req,@PathVariable int id) throws SysException, InstantiationException, IllegalAccessException {
-        if(id > 0L) {
-            Actions actions = actionsServices.findById(id);
-            if (actions != null) {
+			actions.setActionCode(form.getActionCode());
+			actions.setActionName(form.getActionName());
+			// lấy token
+			actionsServices.saveOrUpdate(actions);
+		}
+		return Response.success(Constants.RESPONSE_CODE.SUCCESS).withData(form);
+	}
 
-            	actionsServices.delete(actions);
-                return Response.success(Constants.RESPONSE_CODE.DELETE_SUCCESS);
-            } else {
-                return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
-            }
-        } else {
-            return Response.error(Constants.RESPONSE_CODE.ERROR);
-        }
-    }
+	@Path("/{id}")
+	@DELETE
+	@ResponseStatus(HttpStatus.OK)
+	public @ResponseBody Response delete(HttpServletRequest req, @PathVariable int id)
+			throws SysException, InstantiationException, IllegalAccessException {
+		if (id > 0L) {
+			Actions actions = actionsServices.findById(id);
+			if (actions != null) {
 
+				actionsServices.delete(actions);
+				return Response.success(Constants.RESPONSE_CODE.DELETE_SUCCESS);
+			} else {
+				return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
+			}
+		} else {
+			return Response.error(Constants.RESPONSE_CODE.ERROR);
+		}
+	}
 
-@PostMapping(path = "/{id}")
-@ResponseStatus(HttpStatus.OK)
-public @ResponseBody Response update(HttpServletRequest req,@PathVariable int id) throws SysException, InstantiationException, IllegalAccessException {
-    
-	if(id > 0) {
-		Actions actions = actionsServices.findById(id);
+	@PostMapping(path = "/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public @ResponseBody Response update(HttpServletRequest req, @PathVariable int id)
+			throws SysException, InstantiationException, IllegalAccessException {
 
-        if (actions != null) {
+		if (id > 0) {
+			Actions actions = actionsServices.findById(id);
 
-        	actionsServices.saveOrUpdate(actions);
-            return Response.success(Constants.RESPONSE_CODE.DELETE_SUCCESS);
-        } else {
-            return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
-        }
-    } else {
-        return Response.error(Constants.RESPONSE_CODE.ERROR);
-    }
-}
+			if (actions != null) {
+
+				actionsServices.saveOrUpdate(actions);
+				return Response.success(Constants.RESPONSE_CODE.DELETE_SUCCESS);
+			} else {
+				return Response.warning(Constants.RESPONSE_CODE.RECORD_DELETED);
+			}
+		} else {
+			return Response.error(Constants.RESPONSE_CODE.ERROR);
+		}
+	}
 }

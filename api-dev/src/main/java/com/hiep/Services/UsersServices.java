@@ -21,7 +21,7 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 	private UttData uttData;
 
 	@Override
-	public Users findById(Integer id) {
+	public Users findById(String id) {
 		if (UsersRes.findById(id).isPresent()) {
 			return UsersRes.findById(id).get();
 		} else {
@@ -30,7 +30,7 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 	}
 
 	@Override
-	public List<Users> getlist(UsersReq Entirequest) {
+	public List<Users> getlist() {
 		// TODO Auto-generated method stub
 		return UsersRes.findAll();
 	}

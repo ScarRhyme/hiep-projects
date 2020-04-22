@@ -29,7 +29,7 @@ public class BillServices implements BaseServicesInterface<Bill, BillReq, Intege
 	}
 
 	@Override
-	public List<Bill> getlist(BillReq Entirequest) {
+	public List<Bill> getlist() {
 		// TODO Auto-generated method stub
 		return billRes.findAll();
 	}

@@ -30,7 +30,7 @@ public class RolesServices implements BaseServicesInterface<Roles, RolesReq, Int
 	}
 
 	@Override
-	public List<Roles> getlist(RolesReq Entirequest) {
+	public List<Roles> getlist() {
 		// TODO Auto-generated method stub
 		return RolesRes.findAll();
 	}

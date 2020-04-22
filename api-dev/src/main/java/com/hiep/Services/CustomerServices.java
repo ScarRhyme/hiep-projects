@@ -30,7 +30,7 @@ public class CustomerServices implements BaseServicesInterface<Customer, Custome
 	}
 
 	@Override
-	public List<Customer> getlist(CustomerReq Entirequest) {
+	public List<Customer> getlist() {
 		// TODO Auto-generated method stub
 		return CustomerRes.findAll();
 	}

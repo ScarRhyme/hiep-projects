@@ -27,7 +27,7 @@ public class CategoryServices implements BaseServicesInterface<Category, Categor
 	}
 
 	@Override
-	public List<Category> getlist(CategoryReq Entirequest) {
+	public List<Category> getlist() {
 		// TODO Auto-generated method stub
 		return CategoryRes.findAll();
 	}

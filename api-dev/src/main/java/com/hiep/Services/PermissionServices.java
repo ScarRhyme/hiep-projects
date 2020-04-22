@@ -27,7 +27,7 @@ public class PermissionServices implements BaseServicesInterface<Permission, Per
 	}
 
 	@Override
-	public List<Permission> getlist(PermissionReq Entirequest) {
+	public List<Permission> getlist() {
 		// TODO Auto-generated method stub
 		return PermissionRes.findAll();
 	}

@@ -27,7 +27,7 @@ public class BillDetailServices implements BaseServicesInterface<BillDetail, Bil
 	}
 
 	@Override
-	public List<BillDetail> getlist(BillDetailReq Entirequest) {
+	public List<BillDetail> getlist() {
 		// TODO Auto-generated method stub
 		return BillDetailRes.findAll();
 	}

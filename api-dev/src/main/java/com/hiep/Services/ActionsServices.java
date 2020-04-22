@@ -28,7 +28,7 @@ public class ActionsServices implements BaseServicesInterface<Actions, ActionsRe
 	}
 
 	@Override
-	public List<Actions> getlist(ActionsReq Entirequest) {
+	public List<Actions> getlist() {
 		// TODO Auto-generated method stub
 		return actionsRes.findAll();
 	}
